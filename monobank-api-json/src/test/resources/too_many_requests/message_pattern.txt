@@ -1,0 +1,1 @@
+\[429 Mocked\] during \[GET\] to \[(.+)*/bank/currency\] \[Currency#getRates\(\)\]: \[\{"errorDescription":"Too many requests"\}\s*\]

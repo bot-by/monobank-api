@@ -1,0 +1,14 @@
+---
+engines:
+  duplication:
+    exclude_paths:
+      - "monobank-api-gson/src/test/java/**/*"
+      - "monobank-api-jackson/src/test/java/**/*"
+      - "monobank-api-jackson-jr/src/test/java/**/*"
+      - "monobank-api-json/src/test/java/**/*"
+      - "monobank-api-token/src/test/java/**/*"
+exclude_paths:
+  - "**/prism.css"
+  - "**/prism.js"
+  - "**/example/*"
+
