@@ -1,6 +1,6 @@
 # Monobank API with Jackson Jr.
 
-Unofficial Java wrapper for [Monobank API][api]: get exchange rates (public),
+Unofficial Java wrapper for [Monobank API][monobank-api]: get exchange rates (public),
 get client info and statements and set a webhook to receive transaction
 events (personal).
 
@@ -59,7 +59,7 @@ currency = Feign.builder()
 This is a minimal configuration.
 The `TokenInterceptor` is required for personal API only
 and it is provided by the package <strong>monobank-api-token</strong>.
-But your could use your own implementation to add the token header.
+But your could use your own implementation to add the [token header][token].
 
 ### Get currency exchange rates
 
@@ -87,8 +87,9 @@ To run the example [GetExchangeRates][example]:
 [Apache License v2.0](../LICENSE)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-[api]: https://api.monobank.ua/docs/ "Monobank API to get statements and account balances"
+[monobank-api]: https://api.monobank.ua/docs/ "Monobank API to get statements and account balances"
 [jackson-jr]: https://github.com/FasterXML/jackson-jr "A compact alternative to full Jackson Databind component"
 [parent]: https://gitlab.com/bot-by/monobank-api/ "Java wrapper for Monobank API"
 [feign]: https://github.com/OpenFeign/feign "Feign makes writing java http clients easier."
 [example]: src/test/java/uk/bot_by/monobank/api_jackson_jr/example/GetExchangeRates.java
+[token]: https://api.monobank.ua/docs/#tag---------------------------- "Monobank Personal API"
