@@ -29,3 +29,19 @@ test:
     - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r monobank-api-gson/target/site/jacoco/jacoco.xml -r monobank-api-jackson/target/site/jacoco/jacoco.xml -r monobank-api-jackson-jr/target/site/jacoco/jacoco.xml -r monobank-api-token/target/site/jacoco/jacoco.xml
   except:
     - tags
+
+snapshot:
+  stage: deploy
+  script:
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+  only:
+    - branches
+  except:
+    - master
+
+release:
+  stage: deploy
+  script:
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+  only:
+    - tags

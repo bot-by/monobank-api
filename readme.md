@@ -3,7 +3,7 @@
 [![English](https://img.shields.io/badge/%F0%9F%93%84-English-blue)](readme.md)
 [![Українська](https://img.shields.io/badge/%F0%9F%93%84-%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%BE%D1%8E-blue)](readme.uk.md)
 
-Unofficial Java wrapper for [Monobank API][api]: get exchange rates (public),
+Unofficial Java wrapper for [Monobank API][monobank-api]: get exchange rates (public),
 get client info and statements and set a webhook to receive transaction
 events (personal).
 
@@ -33,7 +33,7 @@ See [ChangeLog](changelog.md)
 [Apache License v2.0](LICENSE)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-[api]: https://api.monobank.ua/docs/ "Monobank API to get statements and account balances"
+[monobank-api]: https://api.monobank.ua/docs/ "Monobank API to get statements and account balances"
 [gson]: https://github.com/google/gson "A Java serialization/deserialization library to convert Java Objects into JSON and back"
 [jackson]: https://github.com/FasterXML/jackson "JSON for Java"
 [jackson-jr]: https://github.com/FasterXML/jackson-jr "A compact alternative to full Jackson Databind component"

@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## 1.0.0 - 2021-XX-XX
+## 1.0.0 - 2021-09-21
 ### Added
--   Initial release.
+-   Public API, currency rates
+-   Personal API, token header
+-   Javadocs
