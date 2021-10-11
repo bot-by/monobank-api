@@ -2,9 +2,7 @@ package uk.bot_by.monobank.api_jackson_jr.example;
 
 import com.fasterxml.jackson.jr.ob.JacksonJrExtension;
 import com.fasterxml.jackson.jr.ob.api.ExtensionContext;
-import feign.Feign;
-import feign.http2client.Http2Client;
-import feign.jackson.jr.JacksonJrDecoder;
+import feign.FeignException;
 import uk.bot_by.monobank.api_jackson_jr.Currency;
 import uk.bot_by.monobank.api_jackson_jr.CurrencyInfo;
 import uk.bot_by.monobank.api_jackson_jr.UnixTimeProvider;
@@ -32,16 +30,18 @@ public class GetExchangeRates {
 			}
 
 		});
-		Currency currency = Feign.builder()
-		                         .client(new Http2Client())
-		                         .decoder(new JacksonJrDecoder(extensions))
-		                         .target(Currency.class, "https://api.monobank.ua/");
+		Currency currency = Currency.getInstance();
 
-		currency.getRates()
-		        .stream()
-		        .filter(pair -> pair.getCurrencyCodeA() == currencyCodeA && pair.getCurrencyCodeB() == currencyCodeB)
-		        .findFirst()
-		        .ifPresent(GetExchangeRates::printCurrencyInfo);
+		try {
+			currency.getRates()
+			        .stream()
+			        .filter(pair -> pair.getCurrencyCodeA() == currencyCodeA && pair.getCurrencyCodeB() == currencyCodeB)
+			        .findFirst()
+			        .ifPresent(GetExchangeRates::printCurrencyInfo);
+		} catch (FeignException.TooManyRequests exception) {
+			System.out.println("Too many request, try it later.");
+			System.exit(1);
+		}
 	}
 
 	private static void printCurrencyInfo(CurrencyInfo currencyInfo) {

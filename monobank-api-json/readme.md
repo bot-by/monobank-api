@@ -37,24 +37,19 @@ Please add dependency to your project:
 
 ## Usage
 
-Instantiate an instance of Monobank API with [Feign][feign]
+### Currency
+
+Create an instance of currency Monobank API using `Currency.getInstance()`
+or with [Feign][feign] manually, e.g. if you want to use custom client.
 
 ```java
 currency = Feign.builder()
                 .client(new Http2Client())
                 .decoder(new JsonDecoder())
-                .requestInterceptor(new TokenInterceptor("abc-api-token"))
                 .target(Currency.class, "https://api.monobank.ua/");
 ```
 
-This is a minimal configuration.
-The `TokenInterceptor` is required for personal API only
-and it is provided by the package <strong>monobank-api-token</strong>.
-But your could use your own implementation to add the [token header][token].
-
-### Get currency exchange rates
-
-It's easy:
+Then just get exchange rates, it's easy:
 
 ```java
 JSONArray currencyExchangeRates = currency.getRates();
@@ -83,4 +78,3 @@ To run the example [GetExchangeRates][example]:
 [parent]: https://gitlab.com/bot-by/monobank-api/ "Java wrapper for Monobank API"
 [feign]: https://github.com/OpenFeign/feign "Feign makes writing java http clients easier."
 [example]: src/test/java/uk/bot_by/monobank/api_json/example/GetExchangeRates.java
-[token]: https://api.monobank.ua/docs/#tag---------------------------- "Monobank Personal API"

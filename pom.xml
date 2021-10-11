@@ -26,7 +26,7 @@
 
 	<properties>
 		<!-- version -->
-		<revision>1.0.0</revision>
+		<revision>1.1.0</revision>
 		<sha1/>
 		<changelist>-SNAPSHOT</changelist>
 		<!-- java and maven -->
@@ -40,29 +40,29 @@
 		<enforcer-plugin.version>3.0.0</enforcer-plugin.version>
 		<clean-plugin.version>3.1.0</clean-plugin.version>
 		<flatten-plugin.version>1.2.7</flatten-plugin.version>
-		<compiler-plugin.version>3.8.1</compiler-plugin.version>
 		<resources-plugin.version>3.2.0</resources-plugin.version>
+		<compiler-plugin.version>3.8.1</compiler-plugin.version>
 		<surefire-plugin.version>2.22.2</surefire-plugin.version>
 		<jar-plugin.version>3.2.0</jar-plugin.version>
 		<failsafe-plugin.version>2.22.2</failsafe-plugin.version>
 		<jacoco-plugin.version>0.8.7</jacoco-plugin.version>
-		<javadoc-plugin.version>3.3.0</javadoc-plugin.version>
+		<javadoc-plugin.version>3.3.1</javadoc-plugin.version>
 		<source-plugin.version>3.2.1</source-plugin.version>
 		<site-plugin.version>3.9.1</site-plugin.version>
 		<docs-maven-skin.version>2.2.4</docs-maven-skin.version>
 		<info-reports-plugin.version>3.1.2</info-reports-plugin.version>
 		<!-- test -->
 		<hamcrest.version>2.2</hamcrest.version>
-		<junit-jupiter.version>5.7.2</junit-jupiter.version>
-		<mockito.version>3.11.2</mockito.version>
+		<junit-jupiter.version>5.8.1</junit-jupiter.version>
+		<mockito.version>3.12.4</mockito.version>
 		<mockserver.version>5.11.2</mockserver.version>
 		<!-- dependencies -->
 		<feign.version>11.6</feign.version>
-		<jetbrains-annotations.version>21.0.1</jetbrains-annotations.version>
+		<jetbrains-annotations.version>22.0.0</jetbrains-annotations.version>
 		<gson.version>2.8.7</gson.version>
 		<jackson.version>2.12.4</jackson.version>
 		<json.version>20210307</json.version>
-		<slf4j.version>1.7.31</slf4j.version>
+		<slf4j.version>1.7.32</slf4j.version>
 	</properties>
 
 	<modules>
