@@ -31,7 +31,7 @@ Please add dependency to your project:
 <dependency>
   <groupId>uk.bot-by.monobank</groupId>
   <artifactId>monobank-api-gson</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
