@@ -1,8 +1,6 @@
 package uk.bot_by.monobank.api_jackson.example;
 
-import feign.Feign;
-import feign.http2client.Http2Client;
-import feign.jackson.JacksonDecoder;
+import feign.FeignException;
 import uk.bot_by.monobank.api_jackson.Currency;
 import uk.bot_by.monobank.api_jackson.CurrencyInfo;
 
@@ -17,16 +15,18 @@ public class GetExchangeRates {
 		int currencyCodeB = (args.length > 1) ?
 				                    Integer.parseInt(args[1]) :
 				                    980; // Hryvnia (UAH)
-		Currency currency = Feign.builder()
-		                         .client(new Http2Client())
-		                         .decoder(new JacksonDecoder())
-		                         .target(Currency.class, "https://api.monobank.ua/");
+		Currency currency = Currency.getInstance();
 
-		currency.getRates()
-		        .stream()
-		        .filter(pair -> pair.getCurrencyCodeA() == currencyCodeA && pair.getCurrencyCodeB() == currencyCodeB)
-		        .findFirst()
-		        .ifPresent(GetExchangeRates::printCurrencyInfo);
+		try {
+			currency.getRates()
+			        .stream()
+			        .filter(pair -> pair.getCurrencyCodeA() == currencyCodeA && pair.getCurrencyCodeB() == currencyCodeB)
+			        .findFirst()
+			        .ifPresent(GetExchangeRates::printCurrencyInfo);
+		} catch (FeignException.TooManyRequests exception) {
+			System.out.println("Too many request, try it later.");
+			System.exit(1);
+		}
 	}
 
 	private static void printCurrencyInfo(CurrencyInfo currencyInfo) {

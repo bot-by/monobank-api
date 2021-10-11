@@ -15,7 +15,9 @@
  */
 package uk.bot_by.monobank.api_gson;
 
+import feign.Feign;
 import feign.RequestLine;
+import feign.gson.GsonDecoder;
 
 import java.util.List;
 
@@ -24,8 +26,11 @@ import java.util.List;
  *
  * <h3>How to get currency rates</h3>
  * <p>
- * First instantiate an instance of Monobank API with
- * <a href="https://github.com/OpenFeign/feign">Feign</a>
+ * First create an instance of Monobank API.
+ * <p>
+ * You can use static method {@linkplain #getInstance} or build it with
+ * <a href="https://github.com/OpenFeign/feign">Feign</a> manually,
+ * e.g. if you want to use custom client:
  * <pre><code class="language-java">
  * currency = Feign.builder()
  *                 .client(new Http2Client())
@@ -41,6 +46,17 @@ import java.util.List;
  * @see <a href="https://api.monobank.ua/docs/#operation--bank-currency-get">Monobank API: отримання курсів валют</a>
  */
 public interface Currency {
+
+	/**
+	 * Get an instance of currency Monobank API.
+	 *
+	 * @return a currency API instance
+	 */
+	static Currency getInstance() {
+		return Feign.builder()
+		            .decoder(new GsonDecoder())
+		            .target(Currency.class, "https://api.monobank.ua/");
+	}
 
 	/**
 	 * Get a list of Monobank's exchange rates.

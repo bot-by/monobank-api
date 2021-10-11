@@ -7,4 +7,4 @@
  *     <li>currency rates</li>
  * </ul>
  */
-package uk.bot_by.monobank.api_jackson_jr;
+package uk.bot_by.monobank.api_json;

@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@Tag("slow")
+@Tag("fast")
 public class CurrencyTest {
 
 	private static JacksonDecoder decoder;
@@ -133,6 +133,12 @@ public class CurrencyTest {
 				() -> assertEquals(429, exception.status(), "status"),
 				() -> assertThat("message", exception.getMessage(), matchesPattern(messagePattern)));
 
+	}
+
+	@DisplayName("Default instance")
+	@Test
+	public void defaultInstance() {
+		assertNotNull(Currency.getInstance(), "Default instance");
 	}
 
 }
