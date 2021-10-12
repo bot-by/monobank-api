@@ -31,7 +31,7 @@ Please add dependency to your project:
 <dependency>
   <groupId>uk.bot-by.monobank4j</groupId>
   <artifactId>monobank4j-jackson-jr</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 

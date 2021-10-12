@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## 1.2.0 - 2021-10-12
+### Change
+-   Rename to Monobank4j
+
 ## 1.1.0 - 2021-10-11
 ### Added
 -   Add `getInstance` to the interface `Currency`
