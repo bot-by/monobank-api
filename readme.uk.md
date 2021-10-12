@@ -1,4 +1,4 @@
-# Monobank API
+# Monobank4J
 
 [![English](https://img.shields.io/badge/%F0%9F%93%84-English-blue)](readme.md)
 [![Українською](https://img.shields.io/badge/%F0%9F%93%84-%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%BE%D1%8E-blue)](readme.uk.md)
@@ -13,12 +13,12 @@
 
 Існує чотири імплементації для різних JSON бібліотек
 
--   [monobank-api-gson](monobank-api-gson) для [Google Gson][gson], з залежностями приблизно 448K,
--   [monobank-api-jackson](monobank-api-jackson) для [Jackson][jackson], з залежностями приблизно 2.1M,
--   [monobank-api-jackson-jr](monobank-api-jackson-jr) для [Jackson Jr.][jackson-jr], з залежностями приблизно 672K,
--   [monobank-api-json](monobank-api-json) для [JSON-java][json], з залежностями приблизно 280K
+-   [monobank4j-gson](monobank4j-gson) для [Google Gson][gson], з залежностями приблизно 448K,
+-   [monobank4j-jackson](monobank4j-jackson) для [Jackson][jackson], з залежностями приблизно 2.1M,
+-   [monobank4j-jackson-jr](monobank4j-jackson-jr) для [Jackson Jr.][jackson-jr], з залежностями приблизно 672K,
+-   [monobank4j-json](monobank4j-json) для [JSON-java][json], з залежностями приблизно 280K
 
-Інший пакет [monobank-api-token](monobank-api-token) надає `TokenInterceptor` для використання у персональному API.
+Інший пакет [monobank4j-token](monobank4j-token) надає `TokenInterceptor` для використання у персональному API.
 
 ## Внесок
 

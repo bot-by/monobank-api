@@ -1,4 +1,4 @@
-# Monobank API
+# Monobank4J
 
 [![English](https://img.shields.io/badge/%F0%9F%93%84-English-blue)](readme.md)
 [![Українська](https://img.shields.io/badge/%F0%9F%93%84-%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%BE%D1%8E-blue)](readme.uk.md)
@@ -13,12 +13,12 @@ It implements:
 
 There are four implementations for different JSON libraries:
 
--   [monobank-api-gson](monobank-api-gson) for [Google Gson][gson], with dependencies about 448K,
--   [monobank-api-jackson](monobank-api-jackson) for [Jackson][jackson], with dependencies about 2.1M,
--   [monobank-api-jackson-jr](monobank-api-jackson-jr) for [Jackson Jr.][jackson-jr], with dependencies about 672K,
--   [monobank-api-json](monobank-api-json) for [JSON-java][json], with dependencies about 280K
+-   [monobank4j-gson](monobank4j-gson) for [Google Gson][gson], with dependencies about 448K,
+-   [monobank4j-jackson](monobank4j-jackson) for [Jackson][jackson], with dependencies about 2.1M,
+-   [monobank4j-jackson-jr](monobank4j-jackson-jr) for [Jackson Jr.][jackson-jr], with dependencies about 672K,
+-   [monobank4j-json](monobank4j-json) for [JSON-java][json], with dependencies about 280K
 
-Another package [monobank-api-token](monobank-api-token) provides `TokenInterceptor` for Personal API.
+Another package [monobank4j-token](monobank4j-token) provides `TokenInterceptor` for Personal API.
 
 ## Contributing
 

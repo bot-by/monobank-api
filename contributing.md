@@ -1,4 +1,4 @@
-# Contributing to Monobank API wrapper
+# Contributing to Monobank4J
 
 **Monobank** API wrapper is an open-source project and all contributions
 are welcome to assist with its development and maintenance.
@@ -18,7 +18,7 @@ updates.
 Contribute your fixes and new features back to the main codebase using
 [GitLab merge requests][gitlab-merge-requests].
 
-[wrapper-issues]: https://gitlab.com/bot-by/monobank-api/-/issues
+[wrapper-issues]: https://gitlab.com/bot-by/monobank4j/-/issues
 [issue-guidelines]: http://github.com/necolas/issue-guidelines/#readme
-[wrapper-gitlab]: https://gitlab.com/bot-by/monobank-api/
+[wrapper-gitlab]: https://gitlab.com/bot-by/monobank4j/
 [gitlab-merge-requests]: https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html
