@@ -72,6 +72,10 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>uk.bot-by.monobank4j</groupId>
+			<artifactId>monobank4j-util</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.jr</groupId>
 			<artifactId>jackson-jr-objects</artifactId>
 		</dependency>

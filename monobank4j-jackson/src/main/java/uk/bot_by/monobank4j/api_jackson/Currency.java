@@ -21,6 +21,9 @@ import feign.jackson.JacksonDecoder;
 
 import java.util.List;
 
+import static uk.bot_by.monobank4j.util.MonobankConstants.API_MONOBANK_UA;
+import static uk.bot_by.monobank4j.util.MonobankConstants.BANK_CURRENCY;
+
 /**
  * Get currency rates. It is part of Monobank Public API.
  *
@@ -55,7 +58,7 @@ public interface Currency {
 	static Currency getInstance() {
 		return Feign.builder()
 		            .decoder(new JacksonDecoder())
-		            .target(Currency.class, "https://api.monobank.ua/");
+		            .target(Currency.class, API_MONOBANK_UA);
 	}
 
 	/**
@@ -67,6 +70,6 @@ public interface Currency {
 	 * @return list of currency rates
 	 * @see CurrencyInfo
 	 */
-	@RequestLine("GET /bank/currency")
+	@RequestLine(BANK_CURRENCY)
 	List<CurrencyInfo> getRates();
 }

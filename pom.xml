@@ -367,6 +367,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>uk.bot-by.monobank4j</groupId>
+				<artifactId>monobank4j-util</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.jetbrains</groupId>
 				<artifactId>annotations</artifactId>
 				<version>${jetbrains-annotations.version}</version>

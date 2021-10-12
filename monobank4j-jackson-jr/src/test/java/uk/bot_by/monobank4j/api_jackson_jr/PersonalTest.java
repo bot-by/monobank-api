@@ -4,9 +4,11 @@ import com.fasterxml.jackson.jr.ob.JSON;
 import com.fasterxml.jackson.jr.ob.JacksonJrExtension;
 import com.fasterxml.jackson.jr.ob.api.ExtensionContext;
 import feign.Feign;
+import feign.Response;
 import feign.jackson.jr.JacksonJrDecoder;
 import feign.mock.MockClient;
 import feign.mock.MockTarget;
+import feign.mock.RequestHeaders;
 import feign.mock.RequestKey;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +18,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -52,7 +55,14 @@ class PersonalTest {
 		                                   })
 		                                   .build());
 		clientInfoKey = RequestKey.builder(GET, "/personal/client-info").build();
-		webhookKey = RequestKey.builder(POST, "/personal/webhook").build();
+		webhookKey = RequestKey.builder(POST, "/personal/webhook")
+		                       .body("{ \"webHookUrl\": \"https://mono.example.com/statements\" }")
+		                       .charset(UTF_8)
+		                       .headers(RequestHeaders.builder()
+		                                              .add("Content-Length", "55")
+		                                              .add("Content-Type", "application/json")
+		                                              .build())
+		                       .build();
 	}
 
 	@BeforeEach
@@ -104,7 +114,24 @@ class PersonalTest {
 	void getStatements() {
 	}
 
+	@DisplayName("Set webhook")
 	@Test
-	void setWebhook() {
+	void setWebhook() throws IOException {
+		// given
+		String responseBody = Files.readString(Path.of("src/test/resources/set_webhook/set_webhook.json"), UTF_8);
+		URL webhookLocator = new URL("https://mono.example.com/statements");
+
+		mockClient = new MockClient().ok(webhookKey, responseBody);
+		personal = Feign.builder()
+		                .decoder(decoder)
+		                .client(mockClient)
+		                .target(new MockTarget<>(Personal.class));
+
+		// when
+		Response response = personal.setWebhook(webhookLocator);
+
+		// then
+		assertEquals(200, response.status(), "OK");
 	}
+
 }

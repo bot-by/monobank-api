@@ -20,6 +20,9 @@ import feign.RequestLine;
 import feign.json.JsonDecoder;
 import org.json.JSONArray;
 
+import static uk.bot_by.monobank4j.util.MonobankConstants.API_MONOBANK_UA;
+import static uk.bot_by.monobank4j.util.MonobankConstants.BANK_CURRENCY;
+
 /**
  * Get currency rates. It is part of Monobank Public API.
  *
@@ -54,7 +57,7 @@ public interface Currency {
 	static Currency getInstance() {
 		return Feign.builder()
 		            .decoder(new JsonDecoder())
-		            .target(Currency.class, "https://api.monobank.ua/");
+		            .target(Currency.class, API_MONOBANK_UA);
 	}
 
 	/**
@@ -65,7 +68,7 @@ public interface Currency {
 	 *
 	 * @return list of currency rates
 	 */
-	@RequestLine("GET /bank/currency")
+	@RequestLine(BANK_CURRENCY)
 	JSONArray getRates();
 
 }

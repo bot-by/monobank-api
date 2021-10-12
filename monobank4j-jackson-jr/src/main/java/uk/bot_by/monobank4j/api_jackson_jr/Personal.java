@@ -24,17 +24,27 @@ import feign.Response;
 import java.net.URL;
 import java.time.Instant;
 
+import static uk.bot_by.monobank4j.util.MonobankConstants.ACCOUNT;
+import static uk.bot_by.monobank4j.util.MonobankConstants.CONTENT_TYPE_APPLICATION_JSON;
+import static uk.bot_by.monobank4j.util.MonobankConstants.FROM;
+import static uk.bot_by.monobank4j.util.MonobankConstants.PERSONAL_CLIENT_INFO;
+import static uk.bot_by.monobank4j.util.MonobankConstants.PERSONAL_STATEMENT;
+import static uk.bot_by.monobank4j.util.MonobankConstants.PERSONAL_WEBHOOK;
+import static uk.bot_by.monobank4j.util.MonobankConstants.TO;
+import static uk.bot_by.monobank4j.util.MonobankConstants.WEBHOOK_BODY;
+import static uk.bot_by.monobank4j.util.MonobankConstants.WEBHOOK_LOCATOR;
+
 public interface Personal {
 
-	@RequestLine("GET /personal/client-info")
+	@RequestLine(PERSONAL_CLIENT_INFO)
 	ClientInfo getClientInfo();
 
-	@RequestLine("GET /personal/statement/{account}/{from}/{to}")
-	Response getStatements(@Param("account") String account, @Param("from") Instant from, @Param("to") Instant to);
+	@RequestLine(PERSONAL_STATEMENT)
+	Response getStatements(@Param(ACCOUNT) String account, @Param(FROM) Instant from, @Param(TO) Instant to);
 
-	@RequestLine("POST /personal/webhook")
-	@Headers({"Content-Type: application/json"})
-	@Body("%7B \"webHookUrl\": \"{webhookLocator}\" %7D")
-	Response setWebhook(@Param("webhookLocator") URL webhookLocator);
+	@RequestLine(PERSONAL_WEBHOOK)
+	@Headers({CONTENT_TYPE_APPLICATION_JSON})
+	@Body(WEBHOOK_BODY)
+	Response setWebhook(@Param(WEBHOOK_LOCATOR) URL webhookLocator);
 
 }
