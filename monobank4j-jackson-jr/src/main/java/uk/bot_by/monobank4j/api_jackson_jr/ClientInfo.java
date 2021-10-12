@@ -1,4 +1,4 @@
-package uk.bot_by.monobank4j.api_gson;
+package uk.bot_by.monobank4j.api_jackson_jr;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -15,20 +15,40 @@ public class ClientInfo {
 		return clientId;
 	}
 
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getWebHookUrl() {
 		return webHookUrl;
 	}
 
+	public void setWebHookUrl(String webHookUrl) {
+		this.webHookUrl = webHookUrl;
+	}
+
 	public String getPermissions() {
 		return permissions;
 	}
 
+	public void setPermissions(String permissions) {
+		this.permissions = permissions;
+	}
+
 	public List<Account> getAccounts() {
 		return accounts;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
 	}
 
 	public static class Account {
@@ -47,36 +67,72 @@ public class ClientInfo {
 			return id;
 		}
 
+		public void setId(String id) {
+			this.id = id;
+		}
+
 		public String getSendId() {
 			return sendId;
+		}
+
+		public void setSendId(String sendId) {
+			this.sendId = sendId;
 		}
 
 		public Integer getCurrencyCode() {
 			return currencyCode;
 		}
 
+		public void setCurrencyCode(Integer currencyCode) {
+			this.currencyCode = currencyCode;
+		}
+
 		public String getCashbackType() {
 			return cashbackType;
+		}
+
+		public void setCashbackType(String cashbackType) {
+			this.cashbackType = cashbackType;
 		}
 
 		public BigInteger getBalance() {
 			return balance;
 		}
 
+		public void setBalance(BigInteger balance) {
+			this.balance = balance;
+		}
+
 		public BigInteger getCreditLimit() {
 			return creditLimit;
+		}
+
+		public void setCreditLimit(BigInteger creditLimit) {
+			this.creditLimit = creditLimit;
 		}
 
 		public List<String> getMaskedPan() {
 			return maskedPan;
 		}
 
+		public void setMaskedPan(List<String> maskedPan) {
+			this.maskedPan = maskedPan;
+		}
+
 		public String getType() {
 			return type;
 		}
 
+		public void setType(String type) {
+			this.type = type;
+		}
+
 		public String getIban() {
 			return iban;
+		}
+
+		public void setIban(String iban) {
+			this.iban = iban;
 		}
 
 	}

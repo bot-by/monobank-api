@@ -85,7 +85,7 @@ public class GsonTest {
 	@Test
 	public void tooManyRequests(MockServerClient mockServerClient) throws IOException {
 		// given
-		String messagePattern = Files.readString(Path.of("src/test/resources/too_many_requests/message_pattern.txt"), ISO_8859_1);
+		String messagePattern = Files.readString(Path.of("src/test/resources/too_many_requests/currency_rates.txt"), ISO_8859_1);
 		String responseBody = Files.readString(Path.of("src/test/resources/too_many_requests/too_many_requests.json"), ISO_8859_1);
 
 		mockServerClient.when(request("/bank/currency")

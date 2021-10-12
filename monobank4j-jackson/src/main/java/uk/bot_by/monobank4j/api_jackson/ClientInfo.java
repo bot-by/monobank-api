@@ -1,4 +1,4 @@
-package uk.bot_by.monobank4j.api_gson;
+package uk.bot_by.monobank4j.api_jackson;
 
 import java.math.BigInteger;
 import java.util.List;

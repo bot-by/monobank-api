@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.bot_by.monobank4j.api_gson;
+package uk.bot_by.monobank4j.api_jackson_jr;
 
 import feign.Body;
 import feign.Headers;

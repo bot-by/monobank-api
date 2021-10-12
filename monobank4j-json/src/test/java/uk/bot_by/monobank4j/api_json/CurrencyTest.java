@@ -69,7 +69,7 @@ public class CurrencyTest {
 	@Test
 	public void tooManyRequests() throws IOException {
 		// given
-		String messagePattern = Files.readString(Path.of("src/test/resources/too_many_requests/message_pattern.txt"), ISO_8859_1);
+		String messagePattern = Files.readString(Path.of("src/test/resources/too_many_requests/currency_rates.txt"), ISO_8859_1);
 		String responseBody = Files.readString(Path.of("src/test/resources/too_many_requests/too_many_requests.json"), ISO_8859_1);
 
 		mockClient = new MockClient().add(requestKey, 429, responseBody);

@@ -1,0 +1,32 @@
+{
+  "clientId": "vF8Sml8ukr",
+  "name": "Огієнко Мар'ян",
+  "webHookUrl": "",
+  "permissions": "xyz",
+  "accounts": [
+    {
+      "id": "gyY61faILGJUgkWneaO4oL",
+      "sendId": "UrggEjCAz0",
+      "currencyCode": 980,
+      "cashbackType": "UAH",
+      "balance": 2000000,
+      "creditLimit": 1000000,
+      "maskedPan": [
+        "557841******6454"
+      ],
+      "type": "black",
+      "iban": "UA203975964178795464987195612"
+    },
+    {
+      "id": "huv6fBmk6PCk14M56WJAWs",
+      "sendId": "",
+      "currencyCode": 980,
+      "cashbackType": "",
+      "balance": 0,
+      "creditLimit": 0,
+      "maskedPan": [],
+      "type": "fop",
+      "iban": "UA263985562455143666954374231"
+    }
+  ]
+}

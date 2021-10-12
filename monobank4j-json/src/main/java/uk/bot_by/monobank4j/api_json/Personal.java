@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.bot_by.monobank4j.api_gson;
+package uk.bot_by.monobank4j.api_json;
 
 import feign.Body;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 import feign.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.net.URL;
 import java.time.Instant;
@@ -27,10 +29,10 @@ import java.time.Instant;
 public interface Personal {
 
 	@RequestLine("GET /personal/client-info")
-	ClientInfo getClientInfo();
+	JSONObject getClientInfo();
 
 	@RequestLine("GET /personal/statement/{account}/{from}/{to}")
-	Response getStatements(@Param("account") String account, @Param("from") Instant from, @Param("to") Instant to);
+	JSONArray getStatements(@Param("account") String account, @Param("from") Instant from, @Param("to") Instant to);
 
 	@RequestLine("POST /personal/webhook")
 	@Headers({"Content-Type: application/json"})
