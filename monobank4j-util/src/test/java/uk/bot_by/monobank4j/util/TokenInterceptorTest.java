@@ -1,4 +1,4 @@
-package uk.bot_by.monobank4j.api_token;
+package uk.bot_by.monobank4j.util;
 
 import feign.RequestTemplate;
 import org.junit.jupiter.api.BeforeEach;

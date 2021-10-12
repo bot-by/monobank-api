@@ -24,14 +24,10 @@
 		<groupId>uk.bot-by.monobank4j</groupId>
 		<version>${revision}${sha1}${changelist}</version>
 	</parent>
-	<artifactId>monobank4j-token</artifactId>
+	<artifactId>monobank4j-util</artifactId>
 
-	<name>Monobank4J Token</name>
-	<description>Unofficial Java wrapper for [Monobank API](https://api.monobank.ua/docs):
-		- get exchange rates (public),
-		- get client info and statements,
-		- set a webhook to receive transaction events (personal).
-	</description>
+	<name>Monobank4J Utility</name>
+	<description>Utilities for the unofficial Java wrapper for [Monobank API](https://api.monobank.ua/docs).</description>
 	<url>https://gitlab.com/bot-by/monobank4j</url>
 	<inceptionYear>2021</inceptionYear>
 	<organization>

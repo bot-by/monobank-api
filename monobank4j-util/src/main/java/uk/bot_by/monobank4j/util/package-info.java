@@ -7,4 +7,4 @@
  *     <li>token for Personal API</li>
  * </ul>
  */
-package uk.bot_by.monobank4j.api_token;
+package uk.bot_by.monobank4j.util;

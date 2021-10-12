@@ -70,7 +70,7 @@
 		<module>monobank4j-jackson</module>
 		<module>monobank4j-jackson-jr</module>
 		<module>monobank4j-json</module>
-		<module>monobank4j-token</module>
+		<module>monobank4j-util</module>
 	</modules>
 
 	<build>
