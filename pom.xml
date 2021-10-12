@@ -19,8 +19,8 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>uk.bot-by.monobank</groupId>
-	<artifactId>monobank-api</artifactId>
+	<groupId>uk.bot-by.monobank4j</groupId>
+	<artifactId>monobank4j</artifactId>
 	<version>${revision}${sha1}${changelist}</version>
 	<packaging>pom</packaging>
 
@@ -66,11 +66,11 @@
 	</properties>
 
 	<modules>
-		<module>monobank-api-gson</module>
-		<module>monobank-api-jackson</module>
-		<module>monobank-api-jackson-jr</module>
-		<module>monobank-api-json</module>
-		<module>monobank-api-token</module>
+		<module>monobank4j-gson</module>
+		<module>monobank4j-jackson</module>
+		<module>monobank4j-jackson-jr</module>
+		<module>monobank4j-json</module>
+		<module>monobank4j-token</module>
 	</modules>
 
 	<build>
@@ -319,13 +319,13 @@
 		</plugins>
 	</build>
 
-	<name>Monobank API</name>
+	<name>Monobank4J</name>
 	<description>Unofficial Java wrapper for [Monobank API](https://api.monobank.ua/docs):
 		- get exchange rates (public),
 		- get client info and statements,
 		- set a webhook to receive transaction events (personal).
 	</description>
-	<url>https://gitlab.com/bot-by/monobank-api</url>
+	<url>https://gitlab.com/bot-by/monobank4j</url>
 	<inceptionYear>2021</inceptionYear>
 	<organization>
 		<name>bot-by</name>
@@ -351,17 +351,17 @@
 	</licenses>
 
 	<scm>
-		<url>https://gitlab.com/bot-by/monobank-api</url>
-		<connection>scm:git:https://gitlab.com/bot-by/monobank-api.git</connection>
-		<developerConnection>scm:git:git@gitlab.com:bot-by/monobank-api.git</developerConnection>
+		<url>https://gitlab.com/bot-by/monobank4j</url>
+		<connection>scm:git:https://gitlab.com/bot-by/monobank4j.git</connection>
+		<developerConnection>scm:git:git@gitlab.com:bot-by/monobank4j.git</developerConnection>
 	</scm>
 	<issueManagement>
 		<system>GitLab</system>
-		<url>https://gitlab.com/bot-by/monobank-api/-/issues</url>
+		<url>https://gitlab.com/bot-by/monobank4j/-/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>GitLab</system>
-		<url>https://gitlab.com/bot-by/monobank-api/-/pipelines</url>
+		<url>https://gitlab.com/bot-by/monobank4j/-/pipelines</url>
 	</ciManagement>
 
 	<dependencyManagement>
@@ -595,7 +595,7 @@
 							<docfilessubdirs>true</docfilessubdirs>
 							<top><![CDATA[
 <link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism.css"/>
-<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/monobank-api.css"/>
+<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/monobank4j.css"/>
 							]]></top>
 							<bottom><![CDATA[
 <script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>
