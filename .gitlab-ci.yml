@@ -26,7 +26,7 @@ test:
   stage: test
   script:
     - mvn $MAVEN_CLI_OPTS verify
-    - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r monobank4j-gson/target/site/jacoco/jacoco.xml -r monobank4j-jackson/target/site/jacoco/jacoco.xml -r monobank4j-jackson-jr/target/site/jacoco/jacoco.xml -r monobank4j-json/target/site/jacoco/jacoco.xml -r monobank4j-token/target/site/jacoco/jacoco.xml
+    - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r monobank4j-gson/target/site/jacoco/jacoco.xml -r monobank4j-jackson/target/site/jacoco/jacoco.xml -r monobank4j-jackson-jr/target/site/jacoco/jacoco.xml -r monobank4j-json/target/site/jacoco/jacoco.xml -r monobank4j-util/target/site/jacoco/jacoco.xml
   except:
     - tags
 
