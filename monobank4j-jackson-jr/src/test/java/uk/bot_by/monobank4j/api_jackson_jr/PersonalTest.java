@@ -12,7 +12,6 @@ import feign.mock.MockTarget;
 import feign.mock.RequestHeaders;
 import feign.mock.RequestKey;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -101,7 +100,8 @@ class PersonalTest {
 				() -> assertThat("accounts", clientInfo.getAccounts(), hasSize(2)));
 
 		Iterator<ClientInfo.Account> accounts = clientInfo.getAccounts().iterator();
-		ClientInfo.Account black = accounts.next(), business = accounts.next();
+		ClientInfo.Account black = accounts.next();
+		ClientInfo.Account business = accounts.next();
 
 		assertAll("Black",
 				() -> assertEquals("gyY61faILGJUgkWneaO4oL", black.getId(), "id"),

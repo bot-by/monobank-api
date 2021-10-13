@@ -86,7 +86,8 @@ class PersonalTest {
 				() -> assertThat("accounts", clientInfo.getAccounts(), hasSize(2)));
 
 		Iterator<ClientInfo.Account> accounts = clientInfo.getAccounts().iterator();
-		ClientInfo.Account black = accounts.next(), business = accounts.next();
+		ClientInfo.Account black = accounts.next();
+		ClientInfo.Account business = accounts.next();
 
 		assertAll("Black",
 				() -> assertEquals("gyY61faILGJUgkWneaO4oL", black.getId(), "id"),
