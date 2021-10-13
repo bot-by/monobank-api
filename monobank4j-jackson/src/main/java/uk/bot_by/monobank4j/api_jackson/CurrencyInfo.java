@@ -16,7 +16,6 @@
 package uk.bot_by.monobank4j.api_jackson;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -46,7 +45,6 @@ public class CurrencyInfo {
 	private int currencyCodeA;
 	private int currencyCodeB;
 	@JsonDeserialize(using = UnixTimeDeserializer.class)
-	@JsonSerialize(using = UnixTimeSerializer.class)
 	private Instant date;
 	private BigDecimal rateBuy;
 	private BigDecimal rateCross;

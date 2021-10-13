@@ -15,6 +15,8 @@
  */
 package uk.bot_by.monobank4j.api_jackson;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigInteger;
 import java.util.List;
 
@@ -22,7 +24,8 @@ public class ClientInfo {
 
 	private String clientId;
 	private String name;
-	private String webHookUrl;
+	@JsonProperty("webHookUrl")
+	private String webhookLocator;
 	private String permissions;
 	private List<Account> accounts;
 
@@ -34,8 +37,8 @@ public class ClientInfo {
 		return name;
 	}
 
-	public String getWebHookUrl() {
-		return webHookUrl;
+	public String getWebhookLocator() {
+		return webhookLocator;
 	}
 
 	public String getPermissions() {
@@ -54,9 +57,11 @@ public class ClientInfo {
 		private String cashbackType;
 		private BigInteger balance;
 		private BigInteger creditLimit;
-		private List<String> maskedPan;
+		@JsonProperty("maskedPan")
+		private List<String> maskedPrimaryAccounts;
 		private String type;
-		private String iban;
+		@JsonProperty("iban")
+		private String account;
 
 		public String getId() {
 			return id;
@@ -82,16 +87,16 @@ public class ClientInfo {
 			return creditLimit;
 		}
 
-		public List<String> getMaskedPan() {
-			return maskedPan;
+		public List<String> getMaskedPrimaryAccounts() {
+			return maskedPrimaryAccounts;
 		}
 
 		public String getType() {
 			return type;
 		}
 
-		public String getIban() {
-			return iban;
+		public String getAccount() {
+			return account;
 		}
 
 	}

@@ -15,6 +15,8 @@
  */
 package uk.bot_by.monobank4j.api_jackson_jr;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigInteger;
 import java.util.List;
 
@@ -22,7 +24,8 @@ public class ClientInfo {
 
 	private String clientId;
 	private String name;
-	private String webHookUrl;
+	@JsonProperty("webHookUrl")
+	private String webhookLocator;
 	private String permissions;
 	private List<Account> accounts;
 
@@ -42,12 +45,12 @@ public class ClientInfo {
 		this.name = name;
 	}
 
-	public String getWebHookUrl() {
-		return webHookUrl;
+	public String getWebhookLocator() {
+		return webhookLocator;
 	}
 
-	public void setWebHookUrl(String webHookUrl) {
-		this.webHookUrl = webHookUrl;
+	public void setWebhookLocator(String webhookLocator) {
+		this.webhookLocator = webhookLocator;
 	}
 
 	public String getPermissions() {
@@ -74,9 +77,11 @@ public class ClientInfo {
 		private String cashbackType;
 		private BigInteger balance;
 		private BigInteger creditLimit;
-		private List<String> maskedPan;
+		@JsonProperty("maskedPan")
+		private List<String> maskedPrimaryAccounts;
 		private String type;
-		private String iban;
+		@JsonProperty("iban")
+		private String account;
 
 		public String getId() {
 			return id;
@@ -126,12 +131,12 @@ public class ClientInfo {
 			this.creditLimit = creditLimit;
 		}
 
-		public List<String> getMaskedPan() {
-			return maskedPan;
+		public List<String> getMaskedPrimaryAccounts() {
+			return maskedPrimaryAccounts;
 		}
 
-		public void setMaskedPan(List<String> maskedPan) {
-			this.maskedPan = maskedPan;
+		public void setMaskedPrimaryAccounts(List<String> maskedPrimaryAccounts) {
+			this.maskedPrimaryAccounts = maskedPrimaryAccounts;
 		}
 
 		public String getType() {
@@ -142,12 +147,12 @@ public class ClientInfo {
 			this.type = type;
 		}
 
-		public String getIban() {
-			return iban;
+		public String getAccount() {
+			return account;
 		}
 
-		public void setIban(String iban) {
-			this.iban = iban;
+		public void setAccount(String account) {
+			this.account = account;
 		}
 
 	}

@@ -20,9 +20,11 @@ import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 import feign.Response;
+import uk.bot_by.monobank4j.util.UnixTimeExpander;
 
 import java.net.URL;
 import java.time.Instant;
+import java.util.List;
 
 import static uk.bot_by.monobank4j.util.MonobankConstants.ACCOUNT;
 import static uk.bot_by.monobank4j.util.MonobankConstants.CONTENT_TYPE_APPLICATION_JSON;
@@ -40,7 +42,9 @@ public interface Personal {
 	ClientInfo getClientInfo();
 
 	@RequestLine(PERSONAL_STATEMENT)
-	Response getStatements(@Param(ACCOUNT) String account, @Param(FROM) Instant from, @Param(TO) Instant to);
+	List<Statement> getStatements(@Param(ACCOUNT) String account,
+	                              @Param(value = FROM, expander = UnixTimeExpander.class) Instant from,
+	                              @Param(value = TO, expander = UnixTimeExpander.class) Instant to);
 
 	@RequestLine(PERSONAL_WEBHOOK)
 	@Headers({CONTENT_TYPE_APPLICATION_JSON})

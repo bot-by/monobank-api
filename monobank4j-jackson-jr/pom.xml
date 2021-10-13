@@ -80,6 +80,10 @@
 			<artifactId>jackson-jr-objects</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.fasterxml.jackson.jr</groupId>
+			<artifactId>jackson-jr-annotation-support</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.github.openfeign</groupId>
 			<artifactId>feign-core</artifactId>
 		</dependency>

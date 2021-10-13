@@ -22,6 +22,7 @@ import feign.RequestLine;
 import feign.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import uk.bot_by.monobank4j.util.UnixTimeExpander;
 
 import java.net.URL;
 import java.time.Instant;
@@ -42,7 +43,9 @@ public interface Personal {
 	JSONObject getClientInfo();
 
 	@RequestLine(PERSONAL_STATEMENT)
-	JSONArray getStatements(@Param(ACCOUNT) String account, @Param(FROM) Instant from, @Param(TO) Instant to);
+	JSONArray getStatements(@Param(ACCOUNT) String account,
+	                        @Param(value = FROM, expander = UnixTimeExpander.class) Instant from,
+	                        @Param(value = TO, expander = UnixTimeExpander.class) Instant to);
 
 	@RequestLine(PERSONAL_WEBHOOK)
 	@Headers({CONTENT_TYPE_APPLICATION_JSON})

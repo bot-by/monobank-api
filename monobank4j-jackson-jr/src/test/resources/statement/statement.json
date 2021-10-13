@@ -1,0 +1,20 @@
+[
+  {
+    "id": "20zs7EZAmWwAe8va",
+    "time": 1633355174,
+    "description": "Харкiвський Метрополiтен",
+    "comment": "червона лінія",
+    "mcc": 4111,
+    "originalMcc": 1114,
+    "amount": -800,
+    "operationAmount": -800,
+    "currencyCode": 980,
+    "commissionRate": 0,
+    "cashbackAmount": 400,
+    "balance": 999200,
+    "hold": false,
+    "receiptId": "YQEF-VB2M-ZY1V-3J3O",
+    "counterEdrpou": "4224027620",
+    "counterIban": "UA711353474611593256779295886"
+  }
+]
