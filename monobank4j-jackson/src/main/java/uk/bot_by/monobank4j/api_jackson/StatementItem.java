@@ -13,36 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.bot_by.monobank4j.api_gson;
+package uk.bot_by.monobank4j.api_jackson;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigInteger;
 import java.time.Instant;
 
-public class Statement {
+public class StatementItem {
 
 	private String id;
-	@JsonAdapter(UnixTimeTypeAdapter.class)
+	@JsonDeserialize(using = UnixTimeDeserializer.class)
 	private Instant time;
 	private String description;
 	private String comment;
-	@SerializedName("mcc")
+	@JsonProperty("mcc")
 	private int categoryCode;
-	@SerializedName("originalMcc")
+	@JsonProperty("originalMcc")
 	private int originalCategoryCode;
 	private BigInteger amount;
 	private BigInteger operationAmount;
 	private int currencyCode;
-	private int commissionRate;
+	private BigInteger commissionRate;
 	private BigInteger cashbackAmount;
 	private BigInteger balance;
 	private boolean hold;
 	private String receiptId;
-	@SerializedName("counterEdrpou")
+	@JsonProperty("counterEdrpou")
 	private String counterLegalIdentifier;
-	@SerializedName("counterIban")
+	@JsonProperty("counterIban")
 	private String counterAccount;
 
 	public String getId() {
@@ -81,7 +81,7 @@ public class Statement {
 		return currencyCode;
 	}
 
-	public int getCommissionRate() {
+	public BigInteger getCommissionRate() {
 		return commissionRate;
 	}
 

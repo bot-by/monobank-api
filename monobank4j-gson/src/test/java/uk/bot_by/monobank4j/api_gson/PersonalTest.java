@@ -127,31 +127,31 @@ class PersonalTest {
 		                .target(new MockTarget<>(Personal.class));
 
 		// when
-		List<Statement> statements = personal.getStatements("0", from, to);
+		List<StatementItem> statementItems = personal.getStatement("0", from, to);
 
 		// then
 		mockClient.verifyOne(GET, "/personal/statement/0/1633035329/1633355389");
-		assertThat("statements", statements, hasSize(1));
+		assertThat("statement items", statementItems, hasSize(1));
 
-		Statement statement = statements.get(0);
+		StatementItem statementItem = statementItems.get(0);
 
 		assertAll("Statement",
-				() -> assertEquals("20zs7EZAmWwAe8va", statement.getId(), "id"),
-				() -> assertEquals(1633355174, statement.getTime().getEpochSecond(), "time"),
-				() -> assertEquals("Харкiвський Метрополiтен", statement.getDescription(), "description"),
-				() -> assertEquals("червона лінія", statement.getComment(), "comment"),
-				() -> assertEquals(4111, statement.getCategoryCode(), "mcc"),
-				() -> assertEquals(1114, statement.getOriginalCategoryCode(), "originalMcc"),
-				() -> assertEquals(BigInteger.valueOf(-800), statement.getAmount(), "amount"),
-				() -> assertEquals(BigInteger.valueOf(-800), statement.getOperationAmount(), "operationAmount"),
-				() -> assertEquals(980, statement.getCurrencyCode(), "currencyCode"),
-				() -> assertEquals(0, statement.getCommissionRate(), "commissionRate"),
-				() -> assertEquals(BigInteger.valueOf(400), statement.getCashbackAmount(), "cashbackAmount"),
-				() -> assertEquals(BigInteger.valueOf(999200), statement.getBalance(), "balance"),
-				() -> assertFalse(statement.isHold(), "hold"),
-				() -> assertEquals("YQEF-VB2M-ZY1V-3J3O", statement.getReceiptId(), "receiptId"),
-				() -> assertEquals("4224027620", statement.getCounterLegalIdentifier(), "counterEdrpou"),
-				() -> assertEquals("UA711353474611593256779295886", statement.getCounterAccount(), "counterIban"));
+				() -> assertEquals("20zs7EZAmWwAe8va", statementItem.getId(), "id"),
+				() -> assertEquals(1633355174, statementItem.getTime().getEpochSecond(), "time"),
+				() -> assertEquals("Харкiвський Метрополiтен", statementItem.getDescription(), "description"),
+				() -> assertEquals("червона лінія", statementItem.getComment(), "comment"),
+				() -> assertEquals(4111, statementItem.getCategoryCode(), "mcc"),
+				() -> assertEquals(1114, statementItem.getOriginalCategoryCode(), "originalMcc"),
+				() -> assertEquals(BigInteger.valueOf(-800), statementItem.getAmount(), "amount"),
+				() -> assertEquals(BigInteger.valueOf(-800), statementItem.getOperationAmount(), "operationAmount"),
+				() -> assertEquals(980, statementItem.getCurrencyCode(), "currencyCode"),
+				() -> assertEquals(BigInteger.ZERO, statementItem.getCommissionRate(), "commissionRate"),
+				() -> assertEquals(BigInteger.valueOf(400), statementItem.getCashbackAmount(), "cashbackAmount"),
+				() -> assertEquals(BigInteger.valueOf(999200), statementItem.getBalance(), "balance"),
+				() -> assertFalse(statementItem.isHold(), "hold"),
+				() -> assertEquals("YQEF-VB2M-ZY1V-3J3O", statementItem.getReceiptId(), "receiptId"),
+				() -> assertEquals("4224027620", statementItem.getCounterLegalIdentifier(), "counterEdrpou"),
+				() -> assertEquals("UA711353474611593256779295886", statementItem.getCounterAccount(), "counterIban"));
 	}
 
 	@DisplayName("Set webhook")

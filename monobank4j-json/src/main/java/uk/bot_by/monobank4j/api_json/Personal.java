@@ -43,9 +43,9 @@ public interface Personal {
 	JSONObject getClientInfo();
 
 	@RequestLine(PERSONAL_STATEMENT)
-	JSONArray getStatements(@Param(ACCOUNT) String account,
-	                        @Param(value = FROM, expander = UnixTimeExpander.class) Instant from,
-	                        @Param(value = TO, expander = UnixTimeExpander.class) Instant to);
+	JSONArray getStatement(@Param(ACCOUNT) String account,
+	                       @Param(value = FROM, expander = UnixTimeExpander.class) Instant from,
+	                       @Param(value = TO, expander = UnixTimeExpander.class) Instant to);
 
 	@RequestLine(PERSONAL_WEBHOOK)
 	@Headers({CONTENT_TYPE_APPLICATION_JSON})

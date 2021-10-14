@@ -42,9 +42,9 @@ public interface Personal {
 	ClientInfo getClientInfo();
 
 	@RequestLine(PERSONAL_STATEMENT)
-	List<Statement> getStatements(@Param(ACCOUNT) String account,
-	                              @Param(value = FROM, expander = UnixTimeExpander.class) Instant from,
-	                              @Param(value = TO, expander = UnixTimeExpander.class) Instant to);
+	List<StatementItem> getStatement(@Param(ACCOUNT) String account,
+	                                 @Param(value = FROM, expander = UnixTimeExpander.class) Instant from,
+	                                 @Param(value = TO, expander = UnixTimeExpander.class) Instant to);
 
 	@RequestLine(PERSONAL_WEBHOOK)
 	@Headers({CONTENT_TYPE_APPLICATION_JSON})
