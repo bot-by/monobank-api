@@ -6,20 +6,21 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.time.Instant;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("fast")
-class UnixTimeExpanderTest {
+class WebhookLocatorExpanderTest {
 
 	private Expander expander;
 
 	@BeforeEach
 	public void setUp() {
-		expander = new UnixTimeExpander();
+		expander = new WebhookLocatorExpander();
 	}
 
 	@DisplayName("Null value")
@@ -41,12 +42,12 @@ class UnixTimeExpanderTest {
 
 	@DisplayName("Happy path")
 	@Test
-	public void happyPath() {
+	public void happyPath() throws MalformedURLException {
 		// given
-		Instant time = Instant.ofEpochSecond(1234567890);
+		URL webhookLocator = new URL("https://mono.example.com/statement");
 
 		// when and then
-		assertEquals("1234567890", expander.expand(time), "expand to unix time string");
+		assertEquals("https://mono.example.com/statement", expander.expand(webhookLocator), "expand to URL string");
 	}
 
 }

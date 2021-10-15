@@ -40,25 +40,25 @@ class UnixTimeProviderTest {
 
 	@DisplayName("Get reader for Instant")
 	@Test
-	void findInstantReader() {
+	public void findInstantReader() {
 		assertNotNull(provider.findValueReader(reader, Instant.class));
 	}
 
 	@DisplayName("Get reader for String")
 	@Test
-	void findStringReader() {
+	public void findStringReader() {
 		assertNull(provider.findValueReader(reader, String.class));
 	}
 
 	@DisplayName("Get writer for Instant")
 	@Test
-	void findInstantWriter() {
+	public void findInstantWriter() {
 		assertNotNull(provider.findValueWriter(writer, Instant.class));
 	}
 
 	@DisplayName("Get writer for String")
 	@Test
-	void findStringWriter() {
+	public void findStringWriter() {
 		assertNull(provider.findValueWriter(writer, String.class));
 	}
 

@@ -50,10 +50,10 @@ class PersonalTest {
 		clientInfoKey = RequestKey.builder(GET, "/personal/client-info").build();
 		statementKey = RequestKey.builder(GET, "/personal/statement/0/1633035329/1633355389").build();
 		webhookKey = RequestKey.builder(POST, "/personal/webhook")
-		                       .body("{ \"webHookUrl\": \"https://mono.example.com/statements\" }")
+		                       .body("{ \"webHookUrl\": \"https://mono.example.com/statement\" }")
 		                       .charset(UTF_8)
 		                       .headers(RequestHeaders.builder()
-		                                              .add("Content-Length", "55")
+		                                              .add("Content-Length", "54")
 		                                              .add("Content-Type", "application/json")
 		                                              .build())
 		                       .build();
@@ -61,7 +61,7 @@ class PersonalTest {
 
 	@DisplayName("Get client information")
 	@Test
-	void getClientInfo() throws IOException {
+	public void getClientInfo() throws IOException {
 		// given
 		String responseBody = Files.readString(Path.of("src/test/resources/client-info/client-info.json"), UTF_8);
 
@@ -114,7 +114,7 @@ class PersonalTest {
 
 	@DisplayName("Get statements")
 	@Test
-	void getStatements() throws IOException {
+	public void getStatements() throws IOException {
 		// given
 		String responseBody = Files.readString(Path.of("src/test/resources/statement/statement.json"), UTF_8);
 		Instant from = Instant.ofEpochSecond(1633035329);
@@ -156,10 +156,10 @@ class PersonalTest {
 
 	@DisplayName("Set webhook")
 	@Test
-	void setWebhook() throws IOException {
+	public void setWebhook() throws IOException {
 		// given
 		String responseBody = Files.readString(Path.of("src/test/resources/set_webhook/set_webhook.json"), UTF_8);
-		URL webhookLocator = new URL("https://mono.example.com/statements");
+		URL webhookLocator = new URL("https://mono.example.com/statement");
 
 		mockClient = new MockClient().ok(webhookKey, responseBody);
 		personal = Feign.builder()
@@ -172,6 +172,12 @@ class PersonalTest {
 
 		// then
 		assertEquals(200, response.status(), "OK");
+	}
+
+	@DisplayName("Default instance")
+	@Test
+	public void defaultInstance() {
+		assertNotNull(Personal.getInstance("qwerty1234567"), "Default instance");
 	}
 
 }

@@ -18,14 +18,14 @@ class TokenInterceptorTest {
 	private RequestTemplate requestTemplate;
 
 	@BeforeEach
-	void setUp() {
+	public void setUp() {
 		interceptor = new TokenInterceptor("qwerty");
 		requestTemplate = new RequestTemplate();
 	}
 
 	@DisplayName("Add the API token to a request template")
 	@Test
-	void happyPath() {
+	public void happyPath() {
 		// when
 		interceptor.apply(requestTemplate);
 
@@ -38,7 +38,7 @@ class TokenInterceptorTest {
 
 	@DisplayName("The API token header exists")
 	@Test
-	void headerExists() {
+	public void headerExists() {
 		// given
 		requestTemplate.header("X-Token", "abc");
 
