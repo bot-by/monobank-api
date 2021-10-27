@@ -23,6 +23,8 @@ import java.time.Instant;
 
 /**
  * Statement item.
+ *
+ * @see <a href="https://api.monobank.ua/docs/#definition-StatementItems">Monobank API: транзакція</a>
  */
 public class StatementItem {
 
@@ -134,9 +136,9 @@ public class StatementItem {
 	}
 
 	/**
-	 * Commission in minor currency unit.
+	 * Cashback in minor currency unit.
 	 *
-	 * @return commission
+	 * @return Cashback amount
 	 */
 	public BigInteger getCashbackAmount() {
 		return cashbackAmount;

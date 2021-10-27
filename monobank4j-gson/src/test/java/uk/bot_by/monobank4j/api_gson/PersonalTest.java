@@ -75,7 +75,7 @@ class PersonalTest {
 		ClientInfo clientInfo = personal.getClientInfo();
 
 		// then
-		mockClient.verifyOne(GET, "/personal/client-info");
+		mockClient.verifyOne(clientInfoKey);
 
 		assertAll("Client information",
 				() -> assertNotNull(clientInfo, "client information"),
@@ -130,7 +130,7 @@ class PersonalTest {
 		List<StatementItem> statementItems = personal.getStatement("0", from, to);
 
 		// then
-		mockClient.verifyOne(GET, "/personal/statement/0/1633035329/1633355389");
+		mockClient.verifyOne(statementKey);
 		assertThat("statement items", statementItems, hasSize(1));
 
 		StatementItem statementItem = statementItems.get(0);
@@ -171,6 +171,7 @@ class PersonalTest {
 		Response response = personal.setWebhook(webhookLocator);
 
 		// then
+		mockClient.verifyOne(webhookKey);
 		assertEquals(200, response.status(), "OK");
 	}
 

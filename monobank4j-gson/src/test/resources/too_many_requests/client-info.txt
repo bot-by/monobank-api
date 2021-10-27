@@ -1,0 +1,1 @@
+\[429 Mocked\] during \[GET\] to \[(.+)*/personal/client-info\] \[Personal#getClientInfo\(\)\]: \[\{"errorDescription":"Too many requests"\}\]

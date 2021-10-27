@@ -60,7 +60,7 @@ public class CurrencyTest {
 		List<CurrencyInfo> currencyRates = currency.getRates();
 
 		// then
-		mockClient.verifyOne(GET, "/bank/currency");
+		mockClient.verifyOne(requestKey);
 
 		assertAll("Currency rates",
 				() -> assertNotNull(currencyRates, "rates"),
@@ -93,7 +93,7 @@ public class CurrencyTest {
 		List<CurrencyInfo> currencyRates = currency.getRates();
 
 		// then
-		mockClient.verifyOne(GET, "/bank/currency");
+		mockClient.verifyOne(requestKey);
 
 		assertAll("Currency rates",
 				() -> assertNotNull(currencyRates, "rates"),
@@ -127,7 +127,7 @@ public class CurrencyTest {
 		FeignException exception = assertThrows(FeignException.TooManyRequests.class, () -> currency.getRates(), "error");
 
 		// then
-		mockClient.verifyOne(GET, "/bank/currency");
+		mockClient.verifyOne(requestKey);
 
 		assertAll("API server returns error",
 				() -> assertEquals(429, exception.status(), "status"),
