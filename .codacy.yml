@@ -6,7 +6,7 @@ engines:
       - "monobank4j-jackson/src/test/java/**/*"
       - "monobank4j-jackson-jr/src/test/java/**/*"
       - "monobank4j-json/src/test/java/**/*"
-      - "monobank4j-token/src/test/java/**/*"
+      - "monobank4j-util/src/test/java/**/*"
 exclude_paths:
   - "**/prism.css"
   - "**/prism.js"

@@ -18,7 +18,8 @@
 -   [monobank4j-jackson-jr](monobank4j-jackson-jr) для [Jackson Jr.][jackson-jr], з залежностями приблизно 672K,
 -   [monobank4j-json](monobank4j-json) для [JSON-java][json], з залежностями приблизно 280K
 
-Інший пакет [monobank4j-token](monobank4j-token) надає `TokenInterceptor` для використання у персональному API.
+Інший пакет [monobank4j-util](monobank4j-util) містить деякі інструменти та утиліти, наприклад надає `TokenInterceptor` для використання у
+персональному API.
 
 ## Внесок
 

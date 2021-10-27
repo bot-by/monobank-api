@@ -18,7 +18,7 @@ There are four implementations for different JSON libraries:
 -   [monobank4j-jackson-jr](monobank4j-jackson-jr) for [Jackson Jr.][jackson-jr], with dependencies about 672K,
 -   [monobank4j-json](monobank4j-json) for [JSON-java][json], with dependencies about 280K
 
-Another package [monobank4j-token](monobank4j-token) provides `TokenInterceptor` for Personal API.
+Another package [monobank4j-util](monobank4j-util) contains some tools and utility e.g. provides `TokenInterceptor` for Personal API.
 
 ## Contributing
 
