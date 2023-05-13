@@ -49,7 +49,7 @@
 		<javadoc-plugin.version>3.3.1</javadoc-plugin.version>
 		<source-plugin.version>3.2.1</source-plugin.version>
 		<site-plugin.version>3.9.1</site-plugin.version>
-		<docs-maven-skin.version>2.2.4</docs-maven-skin.version>
+		<docs-maven-skin.version>2.3.2</docs-maven-skin.version>
 		<info-reports-plugin.version>3.1.2</info-reports-plugin.version>
 		<!-- test -->
 		<hamcrest.version>2.2</hamcrest.version>
