@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="monobank4j-jackson" />
+        <module name="monobank4j-jackson-jr" />
+        <module name="monobank4j-json" />
+        <module name="monobank4j-gson" />
+        <module name="monobank4j-token" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common-api" target="11" />
+      <module name="monobank-api-common" target="11" />
+      <module name="monobank-public-api-gson" target="11" />
+      <module name="monobank-public-api-json" target="11" />
+      <module name="monobank4j-util" target="11" />
+      <module name="public-api-json" target="11" />
+      <module name="public-monobank-api-json" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
