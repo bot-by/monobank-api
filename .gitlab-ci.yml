@@ -47,15 +47,6 @@ codacy:
   rules:
     - if: $CODACY_PROJECT_TOKEN && $CI_COMMIT_TAG == null
 
-snapshot:
-  stage: deploy
-  script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
-  only:
-    - branches
-  except:
-    - master
-
 release:
   stage: deploy
   script:
