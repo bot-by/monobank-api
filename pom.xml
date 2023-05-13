@@ -54,7 +54,7 @@
 		<!-- test -->
 		<hamcrest.version>2.2</hamcrest.version>
 		<junit-jupiter.version>5.8.1</junit-jupiter.version>
-		<mockito.version>3.12.4</mockito.version>
+		<mockito.version>5.3.1</mockito.version>
 		<mockserver.version>5.11.2</mockserver.version>
 		<!-- dependencies -->
 		<feign.version>11.6</feign.version>
