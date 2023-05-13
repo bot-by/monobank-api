@@ -1,12 +1,12 @@
 variables:
   MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
-  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
 
 image: maven:3-openjdk-11
 
 cache:
   paths:
     - .m2/repository
+    - .mvn/wrapper
     - target
 
 stages:
@@ -17,7 +17,7 @@ stages:
 build:
   stage: build
   script:
-    - mvn $MAVEN_CLI_OPTS compile
+    - ./mvnw $MAVEN_CLI_OPTS compile
   except:
     - tags
 
@@ -25,10 +25,27 @@ build:
 test:
   stage: test
   script:
-    - mvn $MAVEN_CLI_OPTS verify
+    - ./mvnw $MAVEN_CLI_OPTS verify
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
+
+coverage:
+  stage: verify
+  script:
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' monobank4j-gson/target/site/jacoco/jacoco.csv monobank4j-jackson/target/site/jacoco/jacoco.csv monobank4j-jackson-jr/target/site/jacoco/jacoco.csv monobank4j-json/target/site/jacoco/jacoco.csv monobank4j-token/target/site/jacoco/jacoco.csv
+  coverage: '/(\d+\.?\d*) \% covered/'
+  rules:
+    - if: $CI_DEFAULT_BRANCH == $CI_COMMIT_BRANCH && $CI_COMMIT_TAG == null
+
+codacy:
+  stage: verify
+  script:
     - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r monobank4j-gson/target/site/jacoco/jacoco.xml -r monobank4j-jackson/target/site/jacoco/jacoco.xml -r monobank4j-jackson-jr/target/site/jacoco/jacoco.xml -r monobank4j-json/target/site/jacoco/jacoco.xml -r monobank4j-token/target/site/jacoco/jacoco.xml
-  except:
-    - tags
+  rules:
+    - if: $CODACY_PROJECT_TOKEN && $CI_COMMIT_TAG == null
 
 snapshot:
   stage: deploy

@@ -49,7 +49,7 @@ public class JacksonJrTest {
         .register(new JacksonJrExtension() {
 
           @Override
-          private void register(ExtensionContext context) {
+          protected void register(ExtensionContext context) {
             context.insertProvider(new UnixTimeProvider());
           }
 

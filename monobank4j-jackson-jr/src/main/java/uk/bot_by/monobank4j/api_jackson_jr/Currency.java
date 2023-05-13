@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Witalij Berdinskich
+ * Copyright 2021-2023 Witalij Berdinskich
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public interface Currency {
     return Feign.builder()
         .decoder(new JacksonJrDecoder(List.of(new JacksonJrExtension() {
           @Override
-          private void register(ExtensionContext context) {
+          protected void register(ExtensionContext context) {
             context.insertProvider(new UnixTimeProvider());
           }
         })))
