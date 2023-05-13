@@ -19,16 +19,15 @@ import feign.Body;
 import feign.Param;
 import feign.RequestLine;
 import feign.Response;
-
 import java.net.URL;
 
 public interface Personal {
 
-	@RequestLine("GET /personal/client-info")
-	ClientInfo getClientInfo();
+  @RequestLine("GET /personal/client-info")
+  ClientInfo getClientInfo();
 
-	@RequestLine("POST /personal/webhook")
-	@Body("%7B\"webHookUrl\":\"{webhook}\"%7D")
-	Response setWebhook(@Param("webhook") URL webhook);
+  @RequestLine("POST /personal/webhook")
+  @Body("%7B\"webHookUrl\":\"{webhook}\"%7D")
+  Response setWebhook(@Param("webhook") URL webhook);
 
 }

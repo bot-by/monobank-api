@@ -20,7 +20,6 @@ import com.fasterxml.jackson.jr.ob.api.ExtensionContext;
 import feign.Feign;
 import feign.RequestLine;
 import feign.jackson.jr.JacksonJrDecoder;
-
 import java.util.List;
 
 /**
@@ -52,36 +51,37 @@ import java.util.List;
  * List&lt;CurrencyInfo&gt; currencyExchangeRates = currency.getRates();
  * </code></pre>
  *
- * @see <a href="https://api.monobank.ua/docs/#operation--bank-currency-get">Monobank API: отримання курсів валют</a>
+ * @see <a href="https://api.monobank.ua/docs/#operation--bank-currency-get">Monobank API: отримання
+ * курсів валют</a>
  */
 public interface Currency {
 
-	/**
-	 * Get an instance of currency Monobank Currency API.
-	 *
-	 * @return a currency API instance
-	 */
-	static Currency getInstance() {
-		return Feign.builder()
-		            .decoder(new JacksonJrDecoder(List.of(new JacksonJrExtension() {
-			            @Override
-			            protected void register(ExtensionContext context) {
-				            context.insertProvider(new UnixTimeProvider());
-			            }
-		            })))
-		            .target(Currency.class, "https://api.monobank.ua/");
-	}
+  /**
+   * Get an instance of currency Monobank Currency API.
+   *
+   * @return a currency API instance
+   */
+  static Currency getInstance() {
+    return Feign.builder()
+        .decoder(new JacksonJrDecoder(List.of(new JacksonJrExtension() {
+          @Override
+          private void register(ExtensionContext context) {
+            context.insertProvider(new UnixTimeProvider());
+          }
+        })))
+        .target(Currency.class, "https://api.monobank.ua/");
+  }
 
-	/**
-	 * Get a list of Monobank's exchange rates.
-	 * <p>
-	 * <strong>Important:</strong><br>
-	 * the data are cached and updated not more than once every 5 minutes.
-	 *
-	 * @return list of currency rates
-	 * @see CurrencyInfo
-	 */
-	@RequestLine("GET /bank/currency")
-	List<CurrencyInfo> getRates();
+  /**
+   * Get a list of Monobank's exchange rates.
+   * <p>
+   * <strong>Important:</strong><br>
+   * the data are cached and updated not more than once every 5 minutes.
+   *
+   * @return list of currency rates
+   * @see CurrencyInfo
+   */
+  @RequestLine("GET /bank/currency")
+  List<CurrencyInfo> getRates();
 
 }
