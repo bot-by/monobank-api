@@ -45,7 +45,7 @@
 		<surefire-plugin.version>3.1.0</surefire-plugin.version>
 		<jar-plugin.version>3.2.0</jar-plugin.version>
 		<failsafe-plugin.version>3.1.0</failsafe-plugin.version>
-		<jacoco-plugin.version>0.8.7</jacoco-plugin.version>
+		<jacoco-plugin.version>0.8.10</jacoco-plugin.version>
 		<javadoc-plugin.version>3.5.0</javadoc-plugin.version>
 		<source-plugin.version>3.2.1</source-plugin.version>
 		<site-plugin.version>3.12.1</site-plugin.version>
