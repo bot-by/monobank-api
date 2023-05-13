@@ -12,6 +12,7 @@ cache:
 stages:
   - build
   - test
+  - verify
   - deploy
 
 build:
