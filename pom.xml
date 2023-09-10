@@ -581,7 +581,7 @@
     <revision>1.2.0</revision>
     <sha1/>
     <site-plugin.version>3.12.1</site-plugin.version>
-    <slf4j.version>2.0.7</slf4j.version>
+    <slf4j.version>2.0.9</slf4j.version>
   </properties>
   <scm>
     <connection>scm:git:https://gitlab.com/bot-by/monobank4j.git</connection>
